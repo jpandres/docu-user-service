@@ -1,2 +1,32 @@
-# docu-user-service
-documented user service with spring restdocs
+= docu-user-service
+jpandres;
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: 3
+:sectlinks:
+
+image::https://github.com/jpandres/docu-user-service/workflows/Java%20CI%20with%20Gradle/badge.svg[GitHub mascot]
+
+== Overview
+This is a sample API with the Spring RestDocs to document it.
+
+== APIs
+This project exposes the following APIs:
+
+- /api/v1/users
+
+== Development setup
+You'll need:
+
+* git
+* JDK 15+ link:https://sdkman.io/[sdkman.io] (recommended)
+* link:https://www.jetbrains.com/idea/[Intellij]
+
+== Support
+You can reach me on @jpandres
+
+== Reference
+
+If you are not familiar with asciidoc please refer to the documentation: link:https://asciidoctor.org/docs/user-manual/[Asciidoctor Manual]
