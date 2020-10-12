@@ -1,0 +1,87 @@
+[[overview]]
+== Overview
+
+This API is used to create and query Users
+
+=== Contact Information
+
+This API is owned by *"The Best"* squad.
+
+TIP: Please contact them in https://google.com["The Best" Channel] if you need any assistance.
+
+=== Security
+==== Authentication
+TBD
+
+==== Authorization
+TBD
+
+=== Interacting with the API
+
+==== HTTP verbs
+
+As per RESTful design patterns, Users API implements following HTTP verbs:
+
+|===
+| Verb | Usage
+
+| `GET`
+| Used to retrieve a resource
+
+| `POST`
+| Used to create a new resource
+
+| `PUT`
+| Used to update an existing resource
+
+
+| `PATCH`
+| Used to update an existing resource, including partial updates
+
+| `DELETE`
+| Used to delete an existing resource
+|===
+
+When making requests, arguments can be passed as params, form data or JSON with correct `Content-Type` header.
+
+==== HTTP status codes
+
+This API tries to adhere as closely as possible to standard HTTP and REST conventions in its use of HTTP status codes.
+
+|===
+|HTTP Code | Message | Description
+|200 |OK |Successful request
+|400 |Bad Request |Returns JSON with the error message
+|404 |Not Found |No such object
+|500 |Internal Server Error |Something went wrong
+|503 |Service Unavailable |The service is down for maintenance or unavailable.
+|===
+
+==== Localisation
+
+This API supports localization for error messages and other strings.
+Localization is defined in each request with `Accept-Language` header.
+Accepted values are currently:
+
+* `es-ES` - Spanish (default)
+* `en-GB` - English
+
+Default locale is configurable with an env variable in PCF.
+
+==== Errors
+
+Whenever an error response (status code >= 400) is returned, the body will contain a JSON object that describes the problem. The error object has the following structure:
+
+.Response Fields
+include::{snippets}/error/response-fields.adoc[]
+
+For example, a request create a user without a username will produce a 400 Bad Request response:
+
+include::{snippets}/error/http-response.adoc[]
+
+==== Common Types
+
+.Date format
+All dates in the API use UTC and are strings in the ISO 8601.
+Either `2015-05-15` or `2015-05-15T15:50:38Z`
+
