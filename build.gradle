@@ -89,3 +89,6 @@ bootJar {
 		into 'static/docs'
 	}
 }
+
+task stage(dependsOn: ['test','build'])
+
