@@ -27,6 +27,15 @@ You'll need:
 == CI
 This app uses github actions to build the app and deploy it to heroku.
 
+https://docu-user-service.herokuapp.com/
+
+== Documentation
+
+You can find 2 types of documentation:
+
+* **Open API** : https://docu-user-service.herokuapp.com/swagger-ui.html
+* **Spring RestDocs** https://docu-user-service.herokuapp.com/docs/api.html
+
 == Support
 You can reach me on @jpandres
 
