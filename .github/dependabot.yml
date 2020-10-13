@@ -13,5 +13,5 @@ updates:
       - "jpandres"
     commit-message:
       # Prefix all commit messages with "update dependencies"
-      prefix: "update dependencies"
+      prefix: "update dep"
     
