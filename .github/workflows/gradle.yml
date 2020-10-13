@@ -29,4 +29,5 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "docu-user-service"
           heroku_email: "jpandres@gmail.com"
+          healthcheck: "https://docu-user-service.herokuapp.com/actuator/health"
 
