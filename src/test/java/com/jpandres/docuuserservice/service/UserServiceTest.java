@@ -12,6 +12,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
@@ -62,6 +63,25 @@ class UserServiceTest {
 
         }).isInstanceOf(DuplicatedUserException.class)
                 .hasMessage("Username already exists pepe@pepe.com");
+    }
+
+    @Test
+    void shouldReturnUser() {
+        User user = User.builder().id(UUID.randomUUID()).username("username").build();
+        when(userRepo.get(user.getId().toString())).thenReturn(user);
+        when(userMapper.modelToDto(user)).thenReturn(UserVO.builder().username("username").build());
+
+        UserVO userVo = userService.getUser(user.getId().toString());
+
+        assertThat(userVo).isNotNull();
+    }
+
+    @Test
+    void shouldReturnUsers() {
+        when(userRepo.values()).thenReturn(List.of(User.builder().id(UUID.randomUUID()).build(),
+                                                   User.builder().id(UUID.randomUUID()).build()));
+        List<UserVO> users = userService.getUsers();
+        assertThat(users.size()).isEqualTo(2);
     }
 
 }

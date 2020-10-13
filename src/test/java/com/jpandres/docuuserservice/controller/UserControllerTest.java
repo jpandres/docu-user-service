@@ -1,6 +1,7 @@
 package com.jpandres.docuuserservice.controller;
 
 import com.jpandres.docuuserservice.data.UserVO;
+import com.jpandres.docuuserservice.exception.DuplicatedUserException;
 import com.jpandres.docuuserservice.model.User;
 import com.jpandres.docuuserservice.service.UserService;
 import org.junit.jupiter.api.BeforeEach;
@@ -36,6 +37,7 @@ import static org.springframework.restdocs.payload.PayloadDocumentation.requestF
 import static org.springframework.restdocs.payload.PayloadDocumentation.responseFields;
 import static org.springframework.restdocs.request.RequestDocumentation.parameterWithName;
 import static org.springframework.restdocs.request.RequestDocumentation.pathParameters;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.header;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
@@ -241,5 +243,29 @@ class UserControllerTest {
                                                 .description(
                                                         "Error Detailed Description")
                                 )));
+    }
+
+    @Test
+    void shouldReturn500() throws Exception {
+        when(userService.getUsers()).thenThrow(new RuntimeException("some errro"));
+
+        var request = get("/api/v1/users")
+                .contentType(MediaType.APPLICATION_JSON);
+
+        mockMvc.perform(request)
+                .andDo(print())
+                .andExpect(status().is5xxServerError());
+    }
+
+    @Test
+    void shouldReturn409() throws Exception {
+        when(userService.getUsers()).thenThrow(new DuplicatedUserException("some errro"));
+
+        var request = get("/api/v1/users")
+                .contentType(MediaType.APPLICATION_JSON);
+
+        mockMvc.perform(request)
+                .andDo(print())
+                .andExpect(status().isConflict());
     }
 }
