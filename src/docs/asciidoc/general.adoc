@@ -57,27 +57,16 @@ This API tries to adhere as closely as possible to standard HTTP and REST conven
 |503 |Service Unavailable |The service is down for maintenance or unavailable.
 |===
 
-==== Localisation
-
-This API supports localization for error messages and other strings.
-Localization is defined in each request with `Accept-Language` header.
-Accepted values are currently:
-
-* `es-ES` - Spanish (default)
-* `en-GB` - English
-
-Default locale is configurable with an env variable in PCF.
-
 ==== Errors
 
 Whenever an error response (status code >= 400) is returned, the body will contain a JSON object that describes the problem. The error object has the following structure:
 
 .Response Fields
-include::{snippets}/error/response-fields.adoc[]
+include::{snippets}/user-error/response-fields.adoc[]
 
 For example, a request create a user without a username will produce a 400 Bad Request response:
 
-include::{snippets}/error/http-response.adoc[]
+include::{snippets}/user-error/http-response.adoc[]
 
 ==== Common Types
 

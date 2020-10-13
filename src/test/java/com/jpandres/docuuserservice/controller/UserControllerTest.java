@@ -190,4 +190,56 @@ class UserControllerTest {
                                                         .description("The Content-Type of the payload"))));
 
     }
+
+    @Test
+    @DisplayName("Given an invalid request" +
+                         "When creating a user" +
+                         " Then is should return a 400 with specific message")
+    void shouldReturnBadRequest() throws Exception {
+        var userId = UUID.randomUUID();
+
+        var request = RestDocumentationRequestBuilders.post("/api/v1/users")
+                .content("""
+                                 {
+                                 "username" : "",
+                                 "firstname": "John",
+                                 "lastname": "Doe",
+                                 "age" : -2
+                                 } 
+                                 """)
+                .contentType(MediaType.APPLICATION_JSON);
+
+        mockMvc.perform(request)
+                .andDo(print())
+                .andExpect(status().isBadRequest())
+                .andDo(document("user-error",
+                                requestFields(
+                                        fieldWithPath("username").type(JsonFieldType.STRING)
+                                                .description(
+                                                        "Username (email format preferred)"),
+                                        fieldWithPath("firstname").type(JsonFieldType.STRING)
+                                                .description("User firstname"),
+                                        fieldWithPath("lastname")
+                                                .type(JsonFieldType.STRING)
+                                                .description(
+                                                        "User lastname"),
+                                        fieldWithPath("age").type(JsonFieldType.NUMBER).optional().description(
+                                                "User Age")
+                                ),
+                                responseFields(
+                                        fieldWithPath("message").type(JsonFieldType.STRING)
+                                                .description(
+                                                        "HTTP Status Error message"),
+                                        fieldWithPath("details").type(JsonFieldType.ARRAY)
+                                                .description("List of errors"),
+                                        fieldWithPath("details[].code")
+                                                .type(JsonFieldType.STRING)
+                                                .description(
+                                                        "Error Code: <Error type>.<field name>"),
+                                        fieldWithPath("details[].description")
+                                                .type(JsonFieldType.STRING)
+                                                .description(
+                                                        "Error Detailed Description")
+                                )));
+    }
 }

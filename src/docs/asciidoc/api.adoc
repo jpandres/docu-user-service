@@ -1,4 +1,4 @@
-= API Guide: ui-gateway
+= API Guide: user-service
 The Sentinels;
 :doctype: book
 :icons: font
