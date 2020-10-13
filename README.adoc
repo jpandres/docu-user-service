@@ -7,7 +7,7 @@ jpandres;
 :toclevels: 3
 :sectlinks:
 
-image::https://github.com/jpandres/docu-user-service/workflows/Java%20CI%20with%20Gradle/badge.svg[GitHub mascot]
+image::https://github.com/jpandres/docu-user-service/workflows/Java%20CI%20with%20Gradle/badge.svg[GitHub Actions Badge]
 
 == Overview
 This is a sample API with the Spring RestDocs to document it.

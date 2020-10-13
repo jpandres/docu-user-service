@@ -33,7 +33,7 @@ repositories {
 ext {
 	set('snippetsDir', file("build/generated-snippets"))
 	set('springCloudVersion', "Hoxton.SR8")
-	mapstructVersion = '1.4.1.Final'
+	mapstructVersion = '1.3.1.Final'
 
 }
 
