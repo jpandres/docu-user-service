@@ -37,7 +37,7 @@ You can find 2 types of documentation:
 * **Spring RestDocs** https://docu-user-service.herokuapp.com/docs/api.html
 
 == Support
-You can reach me on @jpandres
+You can reach me @jpandres
 
 == Reference
 
