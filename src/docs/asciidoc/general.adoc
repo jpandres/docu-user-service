@@ -5,9 +5,9 @@ This API is used to create and query Users
 
 === Contact Information
 
-This API is owned by *"The Best"* squad.
+This API is owned by *"The A-team"* squad.
 
-TIP: Please contact them in https://google.com["The Best" Channel] if you need any assistance.
+TIP: Please contact them in https://google.com["The A-team" Channel] if you need any assistance.
 
 === Security
 ==== Authentication
@@ -33,7 +33,6 @@ As per RESTful design patterns, Users API implements following HTTP verbs:
 
 | `PUT`
 | Used to update an existing resource
-
 
 | `PATCH`
 | Used to update an existing resource, including partial updates

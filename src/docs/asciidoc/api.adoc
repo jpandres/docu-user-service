@@ -1,5 +1,5 @@
 = API Guide: user-service
-The Sentinels;
+The A-team;
 :doctype: book
 :icons: font
 :source-highlighter: highlightjs
