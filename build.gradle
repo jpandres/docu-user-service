@@ -42,6 +42,8 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.cloud:spring-cloud-stream'
 	implementation "org.mapstruct:mapstruct:${mapstructVersion}"
+	compile 'org.springdoc:springdoc-openapi-ui:1.2.32'
+
 	annotationProcessor "org.mapstruct:mapstruct-processor:${ mapstructVersion}"
 
 	compileOnly 'org.projectlombok:lombok'

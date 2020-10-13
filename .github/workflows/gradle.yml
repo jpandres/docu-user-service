@@ -24,7 +24,8 @@ jobs:
         run: chmod +x gradlew
       - name: Build with Gradle
         run: ./gradlew build
-      - uses: akhileshns/heroku-deploy@v3.5.7 # This is the action
+      - name: Deploy app to heroku
+        uses: akhileshns/heroku-deploy@v3.5.7 # This is the action
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "docu-user-service"
