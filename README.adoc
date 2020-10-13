@@ -8,7 +8,7 @@ jpandres;
 :sectlinks:
 
 image::https://github.com/jpandres/docu-user-service/workflows/Gradle%20build%20and%20deploy%20to%20heroku/badge.svg[GitHub Actions Badge]
-
+image::https://codecov.io/gh/jpandres/docu-user-service/branch/main/graph/badge.svg[https://codecov.io/gh/jpandres/docu-user-service]
 == Overview
 This is a sample API with the Spring RestDocs to document it.
 
