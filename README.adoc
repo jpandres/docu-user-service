@@ -7,7 +7,7 @@ jpandres;
 :toclevels: 3
 :sectlinks:
 
-image::https://github.com/jpandres/docu-user-service/workflows/Java%20CI%20with%20Gradle/badge.svg[GitHub Actions Badge]
+image::https://github.com/jpandres/docu-user-service/workflows/Gradle%20build%20and%20deploy%20to%20heroku/badge.svg[GitHub Actions Badge]
 
 == Overview
 This is a sample API with the Spring RestDocs to document it.
@@ -23,6 +23,9 @@ You'll need:
 * git
 * JDK 15+ link:https://sdkman.io/[sdkman.io] (recommended)
 * link:https://www.jetbrains.com/idea/[Intellij]
+
+== CI
+This app uses github actions to build the app and deploy it to heroku.
 
 == Support
 You can reach me on @jpandres
