@@ -24,6 +24,8 @@ jobs:
         run: chmod +x gradlew
       - name: Build with Gradle
         run: ./gradlew build
+      - name: Codecov coverage
+        run: bash <(curl -s https://codecov.io/bash)
       - name: Deploy app to heroku
         uses: akhileshns/heroku-deploy@v3.5.7 # This is the action
         with:
