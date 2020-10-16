@@ -11,7 +11,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    if: github.ref != 'refs/heads/main
+    if: github.ref != 'refs/heads/main'
     steps:
       - uses: actions/checkout@v2
       - name: Set up JDK 15
@@ -30,7 +30,7 @@ jobs:
           fail_ci_if_error: true # optional (default = false)
   build-deploy:
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main
+    if: github.ref == 'refs/heads/main'
     steps:
       - uses: actions/checkout@v2
       - name: Set up JDK 15
