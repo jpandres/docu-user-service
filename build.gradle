@@ -48,7 +48,10 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.cloud:spring-cloud-stream'
     implementation "org.mapstruct:mapstruct:${mapstructVersion}"
-    compile 'org.springdoc:springdoc-openapi-ui:1.4.8'
+
+    implementation 'org.springdoc:springdoc-openapi-ui:1.4.8'
+    //To use without the swagger-ui
+//    implementation 'org.springdoc:springdoc-openapi-webmvc-core:1.4.8'
 
     annotationProcessor "org.mapstruct:mapstruct-processor:${mapstructVersion}"
 
@@ -86,7 +89,7 @@ jacocoTestCoverageVerification {
         rule {
             element = 'CLASS'
             excludes = [
-					'com.jpandres.docuuserservice.DocuUserServiceApplication'
+                    'com.jpandres.docuuserservice.DocuUserServiceApplication'
             ]
             limit {
                 counter = 'LINE'
@@ -106,9 +109,13 @@ test {
     outputs.dir snippetsDir
     useJUnitPlatform()
     finalizedBy jacocoTestReport // report is always generated after tests run
+    finalizedBy asciidoctor
 }
 
 asciidoctor {
+    onlyIf {
+        test.state.didWork == true
+    }
     attributes snippets: snippetsDir
     inputs.dir snippetsDir
     dependsOn test
@@ -122,6 +129,7 @@ asciidoctor {
 
 bootJar {
     dependsOn asciidoctor
+    println 'asciidoctor output: ' + asciidoctor.outputDir
     from("${asciidoctor.outputDir}/html5") {
         into 'static/docs'
     }

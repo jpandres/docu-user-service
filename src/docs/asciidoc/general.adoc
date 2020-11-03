@@ -3,11 +3,14 @@
 
 This API is used to create and query Users
 
+OpenApi Specification for this API:  link:/../v3/api-docs[Download OpenApi Specification, window=_blank]
+
+
 === Contact Information
 
 This API is owned by *"The A-team"* squad.
 
-TIP: Please contact them in https://google.com["The A-team" Channel] if you need any assistance.
+TIP: Please contact them in https://images2.minutemediacdn.com/image/upload/c_crop,h_358,w_640,x_0,y_12/f_auto,q_auto,w_1100/v1555924029/shape/mentalfloss/a-team_1.jpg["The A-team" Channel] if you need any assistance.
 
 === Security
 ==== Authentication

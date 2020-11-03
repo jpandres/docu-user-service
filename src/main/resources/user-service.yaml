@@ -1,0 +1,47 @@
+openapi: 3.0.3
+info:
+  title: Users Service
+  version: '1.0'
+  description: An API to create and query users
+  x-logo:
+    url: ''
+  contact:
+    name: A team
+    email: ateam@ateam.com
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+paths:
+  /api/v1/users:
+    summary: List all users
+    description: Returns a list of all users created in the service.
+    get:
+      tags: []
+      operationId: ListUsers
+      summary: Returns a list of all Users
+    x-last-modified: 1604406141505
+    post:
+      description: 'Creates a user'
+      requestBody:
+        description: user
+      operationId: createUser
+      summary: Creates a user
+  '/api/v1/users/{userId}':
+    summary: Fetches a user
+    get:
+      tags: []
+    x-last-modified: 1604406214875
+components:
+  schemas: {}
+  responses: {}
+  parameters: {}
+  examples: {}
+  requestBodies: {}
+  headers: {}
+  securitySchemes: {}
+  links: {}
+  callbacks: {}
+security: []
+tags: []
+externalDocs:
+  description: In the making....
