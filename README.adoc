@@ -42,3 +42,8 @@ You can reach me @jpandres
 == Reference
 
 If you are not familiar with asciidoc please refer to the documentation: link:https://asciidoctor.org/docs/user-manual/[Asciidoctor Manual]
+
+
+sequenceDiagram
+    Alice->>John: Hello John, how are you?
+    John-->>Alice: Great!
