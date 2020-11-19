@@ -2,6 +2,8 @@ package com.jpandres.docuuserservice.controller;
 
 import com.jpandres.docuuserservice.data.UserVO;
 import com.jpandres.docuuserservice.service.UserService;
+import io.micrometer.core.annotation.Counted;
+import io.micrometer.core.annotation.Timed;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
@@ -24,6 +26,8 @@ public class UserController {
 
     private final UserService userService;
 
+    @Timed(value = "user.creation.timer", description = "Timer for the user creation endpoint")
+    @Counted(value = "user.creation.counter", description = "User creation counter")
     @PostMapping()
     public ResponseEntity<Void> createUser(@Validated  @RequestBody UserVO user) {
         log.debug("User to be created: {}", user);
@@ -32,6 +36,7 @@ public class UserController {
     }
 
     @GetMapping("/{userId}")
+    @Counted(value = "user.get.counter", description = "User get counter")
     public ResponseEntity<UserVO> getUser(@PathVariable String userId) {
         return ResponseEntity.ok(userService.getUser(userId));
     }
