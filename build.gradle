@@ -49,7 +49,7 @@ dependencies {
     implementation 'org.springframework.cloud:spring-cloud-stream'
     implementation "org.mapstruct:mapstruct:${mapstructVersion}"
 
-    implementation 'org.springdoc:springdoc-openapi-ui:1.4.8'
+    implementation 'org.springdoc:springdoc-openapi-ui:1.6.14'
     //To use without the swagger-ui
 //    implementation 'org.springdoc:springdoc-openapi-webmvc-core:1.4.8'
 
